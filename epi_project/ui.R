@@ -4,30 +4,31 @@
 #
 # Find out more about building applications with Shiny here:
 #
-#    https://shiny.posit.co/
+#    http://shiny.rstudio.com/
 #
 
 library(shiny)
 
 # Define UI for application that draws a histogram
 fluidPage(
-
-    # Application title
-    titlePanel("Old Faithful Geyser Data"),
-
-    # Sidebar with a slider input for number of bins
-    sidebarLayout(
-        sidebarPanel(
-            sliderInput("bins",
-                        "Number of bins:",
-                        min = 1,
-                        max = 50,
-                        value = 30)
-        ),
-
-        # Show a plot of the generated distribution
-        mainPanel(
-            plotOutput("distPlot")
-        )
-    )
+  
+  # Application title
+  titlePanel("New Title"),
+  
+  # Sidebar with a slider input for number of bins
+  sidebarLayout(position = "right",
+                sidebarPanel(
+                  sliderInput("bins",
+                              "New Title:",
+                              min = 0,
+                              max = 100,
+                              value = 20,
+                              width = "200px") #use quotes for css including percentages or use :"50"
+                ),
+                
+                # Show a plot of the generated distribution
+                mainPanel(
+                  plotOutput("distPlot")
+                )
+  )
 )

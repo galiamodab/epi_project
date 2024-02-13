@@ -4,25 +4,26 @@
 #
 # Find out more about building applications with Shiny here:
 #
-#    https://shiny.posit.co/
+#    http://shiny.rstudio.com/
 #
 
 library(shiny)
 
 # Define server logic required to draw a histogram
 function(input, output, session) {
-
-    output$distPlot <- renderPlot({
-
-        # generate bins based on input$bins from ui.R
-        x    <- faithful[, 2]
-        bins <- seq(min(x), max(x), length.out = input$bins + 1)
-
-        # draw the histogram with the specified number of bins
-        hist(x, breaks = bins, col = 'blue', border = 'grey',
-             xlab = 'Waiting time to next eruption (in mins)',
-             main = 'Histogram of waiting times')
-
-    })
-
+  
+  output$distPlot <- renderPlot({
+    
+    # generate bins based on input$bins from ui.R
+    x    <- faithful[, 2]
+    bins <- seq(min(x), max(x), length.out = input$bins + 1)
+    
+    # draw the histogram with the specified number of bins
+    hist(x, breaks = bins, col = 'green', border = 'red',
+         xlab = 'Waiting time to next eruption (in mins)',
+         ylab = "title",
+         main = 'Histogram of waiting times')
+    
+  })
 }
+
